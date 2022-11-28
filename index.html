@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Task Vanquisher</title>
+</head>
+
+<body>
+
+<div class="row min-vh-100 no-gutters">
+
+<!-- 
+    4. Replace Icons
+    5. Add new buttons (quote generator and song)
+    6. change lorem ipsum
+ -->
+
+    <!-- Sidebar / Header -->
+    <header class="col-12 col-lg-3 d-flex flex-column sticky-top p-4 bg-primary text-black">
+        <h1 class="text-center font-weight-bold">Task Vanquisher</h1>
+        <span class="ri-trophy-line display-1 text-center mb-2 d-none d-lg-block"></span>
+        <button id="create-task" class="btn btn-success btn-block text-white" data-toggle="modal" data-target="task-form-modal">
+            <span class="ri-checkbox-circle-line ri-lg mr-2"></span>
+            Add Task
+        </button>
+        <button id="clear-tasks" class="btn btn-warning btn-block text-white">
+            <span class="ri-delete-bin-2-line ri-lg mr-2"></span>
+            Clear All
+        </button>
+        <button id="pep-talk" class="btn btn-success btn-block text-white">
+            <span class="ri-vip-crown-line ri-lg mr-2"></span>
+            Pep Talk
+        </button>
+        <button id="motivation-boost" class="btn btn-warning btn-block text-white">
+            <span class="ri-music-2-fill ri-lg mr-1"></span>
+            Motivation Boost
+        </button>
+        <p class="pt-5 p-4 text-white text-center">No one can stop a <em>Task Vanquisher.</em> Nothing can stop a <em>Task Vanquisher.</em> You are the <em><b>Task Vanquisher!</b></em></p>
+        <div class="d-none p-2" id="player">
+            <audio controls loop id="audio">
+                <source src="./assets/audio/tothemax.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="col-12 col-lg-9 d-flex flex-column">
+        <div class="row justify-content-around m-4">
+            <!-- To Do Container -->
+            <div class="col-12 col-md-6 col-xl-3 mb-3">
+                <div class="card">
+                    <h4 class="card-header bg-primary text-white d-flex">To Do</h4>
+                    <ul id="list-toDo" class="list-group list-group-flush"></ul>
+                </div>
+            </div>
+            <!-- In Progress Container -->
+            <div class="col-12 col-md-6 col-xl-3 mb-3">
+                <div class="card">
+                    <h4 class="card-header bg-primary text-white d-flex">In Progress</h4>
+                    <ul id="list-inProgress" class="list-group list-group-flush"></ul>
+                </div>
+            </div>
+            <!-- Under Review Container -->
+            <div class="col-12 col-md-6 col-xl-3 mb-3">
+                <div class="card">
+                    <h4 class="card-header bg-primary text-white d-flex">Under Review</h4>
+                    <ul id="list-inReview" class="list-group list-group-flush"></ul>
+                </div>
+            </div>
+            <!-- Completed Container -->
+            <div class="col-12 col-md-6 col-xl-3 mb-3">
+                <div class="card">
+                    <h4 class="card-header bg-primary text-white d-flex">Completed</h4>
+                    <ul id="list-done" class="list-group list-group-flush"></ul>
+                </div>
+            </div>
+        </div>
+        <!-- Trash Bin -->
+        <div class="mt-auto overflow-hidden" id="trash">
+            <div class="w-100 p-3 text-center trash font-weight-bold">
+                <span class="ri-eye-2-line ri-xl mr-5" id="trash1"></span>
+                Drag, Drop, and Delete
+                <span class="ri-eye-close-line ri-xl ml-5" id="trash2"></span>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Task Input Modal -->
+<div class="modal fade" id="task-form-modal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="task-form-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalTitle">Add New Task</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="modalTaskDescription">Task Description</label>
+                      <textarea class="form-control" id="modalTaskDescription" rows="4" placeholder="..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalDueDate">Due Date</label>
+                        <input type="text" class="form-control" placeholder="..." id="modalDueDate" autocomplete="off">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-save">Save</button>
+            </div> 
+        </div>                 
+    </div>
+</div>
+
+<!-- Motivational Quote Modal -->
+<div class="modal fade" id="quote-modal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="quote-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p id="quoteP"></p>
+                <p class="text-right" id="quoteByP"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-save">Save</button>
+            </div> 
+        </div>                 
+    </div>
+</div>
+
+    <!-- Script Src -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

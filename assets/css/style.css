@@ -1,0 +1,44 @@
+header, .card-header, .modal, #trash {
+    font-family: 'Bangers', cursive;
+}
+
+#modalTaskDescription, #modalDueDate {
+    font-family: Roboto;
+}
+
+h1 {
+    font-size: 40pt;
+}
+
+ul.list-group {
+    min-height: 130px;
+    font-family: Roboto;
+}
+  
+.trash {
+    opacity: 0;
+    font-size: 24pt;
+    color: white;
+    background-color: red;
+    transition: all .5s ease-in-out; 
+}
+  
+.trash-drag {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.trash-active {
+    color: black;
+    background-color: lightcoral;
+    
+}
+  
+.dropover {
+    background: rgba(221, 25, 25, 0.4);
+}
+  
+.dropover-active {
+    background: rgba(15, 255, 3, 0.8);
+}
+
