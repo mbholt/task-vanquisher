@@ -86,17 +86,6 @@ var pep = [
     }
 ];
 
-
-// ............
-
-
-// ..............
-
-// CHANGE TASKLIST TO STATUS...taskSpan to taskDate...taskP to taskDescription...text to description
-// ...
-// ...
-
-
 // create a task
 function createTask(taskText, taskDate, taskList) {
     var taskLi = $('<li>').addClass('list-group-item');

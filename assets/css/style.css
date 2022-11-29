@@ -2,6 +2,10 @@ header, .card-header, .modal, #trash {
     font-family: 'Bangers', cursive;
 }
 
+#button-group-mobile {
+    display: none;
+}
+
 #modalTaskDescription, #modalDueDate {
     font-family: Roboto;
 }
@@ -40,5 +44,20 @@ ul.list-group {
   
 .dropover-active {
     background: rgba(15, 255, 3, 0.8);
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 34px;
+    }
+    #button-group, header p {
+        display: none;
+    }
+
+    #button-group-mobile {
+        display: flex;
+        align-items: center;
+    }
 }
 

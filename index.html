@@ -20,32 +20,52 @@
 
 <div class="row min-vh-100 no-gutters">
 
-<!-- 
-    4. Replace Icons
-    5. Add new buttons (quote generator and song)
-    6. change lorem ipsum
- -->
-
     <!-- Sidebar / Header -->
     <header class="col-12 col-lg-3 d-flex flex-column sticky-top p-4 bg-primary text-black">
         <h1 class="text-center font-weight-bold">Task Vanquisher</h1>
-        <span class="ri-trophy-line display-1 text-center mb-2 d-none d-lg-block"></span>
-        <button id="create-task" class="btn btn-success btn-block text-white" data-toggle="modal" data-target="task-form-modal">
-            <span class="ri-checkbox-circle-line ri-lg mr-2"></span>
-            Add Task
-        </button>
-        <button id="clear-tasks" class="btn btn-warning btn-block text-white">
-            <span class="ri-delete-bin-2-line ri-lg mr-2"></span>
-            Clear All
-        </button>
-        <button id="pep-talk" class="btn btn-success btn-block text-white">
-            <span class="ri-vip-crown-line ri-lg mr-2"></span>
-            Pep Talk
-        </button>
-        <button id="motivation-boost" class="btn btn-warning btn-block text-white">
-            <span class="ri-music-2-fill ri-lg mr-1"></span>
-            Motivation Boost
-        </button>
+        <div id="button-group">
+            <span class="ri-trophy-line display-1 text-center mb-2 d-none d-lg-block"></span>
+            <button id="create-task" class="btn btn-success btn-block text-white" data-toggle="modal" data-target="task-form-modal">
+                <span class="ri-checkbox-circle-line ri-lg mr-2"></span>
+                Add Task
+            </button>
+            <button id="clear-tasks" class="btn btn-warning btn-block text-white">
+                <span class="ri-delete-bin-2-line ri-lg mr-2"></span>
+                Clear All
+            </button>
+            <button id="pep-talk" class="btn btn-success btn-block text-white">
+                <span class="ri-vip-crown-line ri-lg mr-2"></span>
+                Pep Talk
+            </button>
+            <button id="motivation-boost" class="btn btn-warning btn-block text-white">
+                <span class="ri-music-2-fill ri-lg mr-2"></span>
+                Motivation Boost
+            </button>
+        </div>
+
+        <div id="button-group-mobile">
+            <div class="col-6 text-center">
+                <button id="create-task" class="btn btn-success btn-block text-white" data-toggle="modal" data-target="task-form-modal">
+                    <span class="ri-checkbox-circle-line ri-lg mr-2"></span>
+                    Add Task!!!
+                </button>
+                <button id="clear-tasks" class="btn btn-warning btn-block text-white">
+                    <span class="ri-delete-bin-2-line ri-lg mr-2"></span>
+                    Clear All
+                </button>
+            </div>
+            <div class="col-6 text-center">
+                <button id="pep-talk" class="btn btn-warning btn-block text-white">
+                    <span class="ri-vip-crown-line ri-lg mr-2"></span>
+                    Pep Talk
+                </button>
+                <button id="motivation-boost" class="btn btn-success btn-block text-white">
+                    <span class="ri-music-2-fill ri-lg mr-2"></span>
+                    Boost
+                </button>
+            </div>
+        </div>
+
         <p class="pt-5 p-4 text-white text-center">No one can stop a <em>Task Vanquisher.</em> Nothing can stop a <em>Task Vanquisher.</em> You are the <em><b>Task Vanquisher!</b></em></p>
         <div class="d-none p-2" id="player">
             <audio controls loop id="audio">
